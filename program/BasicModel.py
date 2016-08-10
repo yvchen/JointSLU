@@ -166,7 +166,7 @@ class KerasModel( object ):
 		if self.arch == 'lstm' or self.arch == 'rnn' or self.arch == 'gru' or self.arch == 'blstm' or self.arch == 'brnn' or self.arch == 'bgru':
 			if self.input_type == 'embedding':
 				raw_current = Input(shape=(self.time_length,), dtype='int32')
-				current = Embedding(input_dim=self.input_vocab_size, output_dim=self.embedding_size, input_length=self.time_length)(raw_current)
+				current = Embedding(input_dim=self.input_vocab_size, output_dim=self.embedding_size, input_length=self.time_length, mask_zero=True)(raw_current)
 			else:
 				current = raw_current = Input(shape=(self.time_length, self.input_vocab_size))
 			if 'rnn' in self.arch:
