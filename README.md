@@ -1,11 +1,16 @@
 # JointSLU: Joint Semantic Parsing for Spoken/Natural Language Understanding
 
-Yun-Nung (Vivian) Chen, y.v.chen@ieee.org
 
 *A Keras implementation of the models described in [Hakkani-Tur et al. (2016)] (https://www.csie.ntu.edu.tw/~yvchen/doc/IS16_MultiJoint.pdf).*
 
 This model learns various RNN architectures (RNN, GRU, LSTM, etc.) for joint semantic parsing, 
 where intent prediction and slot filling are performed in a single network model.
+
+## Content
+* [Requirements](#requirements)
+* [Getting Started](#getting-started)
+* [Contact](#contact)
+* [Reference](#reference)
 
 ## Requirements
 1. Python
@@ -17,10 +22,6 @@ where intent prediction and slot filling are performed in a single network model
 1. Train: word sequences with IOB slot tags and the intent label (data/atis.train.w-intent.iob)
 2. Test: word sequences with IOB slot tags and the intent label (data/atis.test.w-intent.iob)
 
-## Content
-* [Getting Started](#getting-started)
-* [Contact](#contact)
-* [Credits](#credits)
 
 ## Getting Started
 You can train and test JointSLU with the following commands:
@@ -29,9 +30,14 @@ You can train and test JointSLU with the following commands:
   git clone --recursive https://github.com/yvchen/JointSLU.git
   cd JointSLU
 ```
+You can run a sample tutorial with this command:
 ```shell
   bash script/run_sample.sh rnn theano 0 | sh
 ```
+Then you can see the predicted result in `sample/rnn+emb_H-50_O-adam_A-tanh_WR-embedding.test.3`.
+
+## Contact
+Yun-Nung (Vivian) Chen, y.v.chen@ieee.org
 
 ## Reference
 
