@@ -18,15 +18,3 @@ def onehot_sent_encoding( data, vocab_size):
 		for j, k in enumerate(sent):
 			X[i, k] = 1
 	return X
-
-def history_build( indata, pad_X):
-	H = list()
-	for i, pos in enumerate(indata.dataSet['startid']):
-		if i == pos:
-			his = []
-		else:
-			his = list(pad_X[pos])
-			for j in range(pos + 1, i):
-				his = his + list(pad_X[j])
-		H.append(list(his))
-	return H

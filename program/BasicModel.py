@@ -8,7 +8,7 @@ import numpy as np
 from scipy import io
 from wordSlotDataSet import dataSet, readNum
 from PredefinedEmbedding import PredefinedEmbedding
-from encoding import encoding, history_build, onehot_sent_encoding
+from Encoding import encoding
 import argparse
 from keras.preprocessing import sequence
 from keras.models import Sequential, Graph, Model
