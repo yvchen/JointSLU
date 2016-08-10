@@ -56,7 +56,7 @@ Yun-Nung (Vivian) Chen, y.v.chen@ieee.org
 Main papers to be cited
 ```
 @Inproceedings{hakkani-tur2016multi,
-  author    = {Hakkani-Tur, Dilek and Tur, Gokhan and Celikyilmaz, Asli and Chen, Yun-Nung and Gao, Jianfeng and Wang, Ye-Yi},
+  author    = {Hakkani-Tur, Dilek and Tur, Gokhan and Celikyilmaz, Asli and Chen, Yun-Nung and Gao, Jianfeng and Deng, Li and Wang, Ye-Yi},
   title     = {Multi-Domain Joint Semantic Frame Parsing using Bi-directional RNN-LSTM},
   booktitle = {Proceedings of Interspeech},
   year      = {2016}
