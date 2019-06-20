@@ -10,7 +10,8 @@ else
 	if [ ! $2 ]; then
 		echo "Default is CPU for theano or automatic setting for tensorflow depending on what the backend is using."
 		GPUSET=''
-	elif [ $2 == 'theano' ]; then
+	elif [ $2 == 'theano' ]
+	then
 		GPUSET="THEANO_FLAGS=device=gpu$3,floatX=float32"
 	fi
 	MDL=$1
