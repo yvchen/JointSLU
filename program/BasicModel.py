@@ -12,7 +12,7 @@ from Encoding import encoding
 import argparse
 from keras.preprocessing import sequence
 from keras.models import Sequential, Model
-from keras.layers import Input, merge, Merge, Dense, Dropout, Activation, RepeatVector, Permute, Reshape, RepeatVector, Flatten
+from keras.layers import Input, merge, Dense, Dropout, Activation, RepeatVector, Permute, Reshape, RepeatVector, Flatten, concatenate
 from keras.layers.convolutional import Convolution1D, MaxPooling1D, AveragePooling1D
 from keras.layers.embeddings import Embedding
 from keras.layers.recurrent import SimpleRNN, GRU, LSTM
@@ -176,10 +176,10 @@ class KerasModel( object ):
 				forward = GRU(self.hidden_size, return_sequences=True, init=self.init_type, activation=self.activation)(current)
 				backward = GRU(self.hidden_size, return_sequences=True, init=self.init_type, activation=self.activation, go_backwards=True)(current)
 			elif 'lstm' in self.arch:
-				forward = LSTM(self.hidden_size, return_sequences=True, init=self.init_type, activation=self.activation)(current)
-				backward = LSTM(self.hidden_size, return_sequences=True, init=self.init_type, activation=self.activation, go_backwards=True)(current)
+				forward = LSTM(self.hidden_size, return_sequences=True, kernel_initializer=self.init_type, activation=self.activation)(current)
+				backward = LSTM(self.hidden_size, return_sequences=True, kernel_initializer=self.init_type, activation=self.activation, go_backwards=True)(current)
 			if 'b' in self.arch:
-				tagger = merge([forward, backward], mode='concat')
+				tagger = concatenate([forward, backward])
 			else:
 				tagger = forward
 			if self.dropout:
